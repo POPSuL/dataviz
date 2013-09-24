@@ -1,0 +1,28 @@
+#header {
+    margin: 20px 0;
+}
+
+#select-file {
+    line-height: inherit;
+}
+
+#description-container {
+    position: fixed;
+}
+
+#binary-target > * {
+    white-space: pre;
+    font-size: 13px;
+}
+
+#hex-target, #bin-target {
+    font-family: monospace;
+}
+
+#hex-target span span {
+    margin: 0 2px;
+}
+
+#binary-target .selected {
+    font-weight: bold;
+}

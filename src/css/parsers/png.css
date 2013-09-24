@@ -1,0 +1,23 @@
+.png .signature {
+    background: #faa296;
+}
+
+.png .chunk {
+    background: #aeaeae;
+}
+
+.png .ihdr-chunk {
+    background: #78d6d9;
+}
+
+.png .text-chunk {
+    background: #aec473;
+}
+
+.png .image-data {
+    background: #b3ffa3;
+}
+
+.png .iend-chunk {
+    background: #ff90cd;
+}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Data Vizualizer</title>
+    <link rel="stylesheet" href="thirdparty/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/dataviz.css"/>
+    <script src="thirdparty/jquery-1.8.0.min.js"></script>
+    <script src="thirdparty/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/dataviz.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row-fluid" id="header">
+            <input type="file" name="file" id="select-file" />
+        </div>
+        <div class="row-fluid">
+            <div class="span6">
+                <h4>Binary data</h4>
+                <div id="binary-target">
+                    <div id="address" class="span1">0000</div>
+                    <div id="hex-target" class="span8"></div>
+                    <div id="bin-target" class="span3"></div>
+                </div>
+            </div>
+            <div id="description-container" class="span4 offset6">
+                <h4>Description</h4>
+                <div id="description-target"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
