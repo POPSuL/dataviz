@@ -3,11 +3,11 @@ function DataParser(name, parseFunc) {
 	var n = name;
 	this.parse = function (data) {
 		return parseFunc.call(t, data);
-	}
+	};
 
 	this.getName = function () {
 		return n;
-	}
+	};
 }
 
 var dataviz = new (function () {
@@ -58,11 +58,11 @@ var dataviz = new (function () {
 		})(file);
 		console.log(reader);
 		reader.readAsArrayBuffer(file);
-	}
+	};
 
 	this.handleFile = function (file) {
 		dataviz._handleFile.call(dataviz, file);
-	}
+	};
 
 	this.formatMessage = function (tpl, values) {
 		for (var i in values) {
@@ -71,7 +71,7 @@ var dataviz = new (function () {
 			}
 		}
 		return tpl;
-	}
+	};
 
 });
 
@@ -99,6 +99,12 @@ jQuery(function ($) {
 		}
 		var comment = $(this).data('comment');
 		$('#description-target').html(comment);
+	};
+
+	function cleanup() {
+		dataCounter = 0;
+		$('#bin-target, #hex-target, #description-target').html('');
+		$('#address').text(getNextAddress());
 	}
 
 	$('#binary-target').bind('chunkReceived', function (e) {
@@ -111,18 +117,19 @@ jQuery(function ($) {
 
 		var hexString = "";
 		var binString = "";
+		var addressString = "";
 		for (var i = 0; i < chunk.length; i++, dataCounter++) {
 			if (dataCounter && (dataCounter % 16) == 0) {
 				hexString += "\n";
 				binString += "\n";
-				$('#address').append("\n" + getNextAddress());
+				addressString += ("\n" + getNextAddress());
 			}
 			var byte = chunk[i];
 			var hex = byte.toString(16);
 			hex = "00".substr(hex.length) + hex;
 			hexString += hex + " ";
 			if (byte < 0x20) {
-				var char = '•';
+				var char = '·';
 			} else {
 				var char = String.fromCharCode(byte);
 			}
@@ -132,9 +139,11 @@ jQuery(function ($) {
 		binContainer.text(binString);
 		$("#hex-target").append(hexContainer);
 		$("#bin-target").append(binContainer);
+		$('#address').append(addressString);
 	});
 
 	$('#select-file').change(function (e) {
+		cleanup();
 		if (e.target.files.length) {
 			try {
 				dataviz.handleFile(e.target.files[0]);

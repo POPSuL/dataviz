@@ -1,26 +1,43 @@
+.container {
+    width: 1200px;
+}
+
+.well h4 {
+    margin-top: 0;
+}
+
 #header {
     margin: 20px 0;
 }
 
 #select-file {
     line-height: inherit;
+    height: auto;
+}
+
+#address {
+    text-align: right;
 }
 
 #description-container {
     position: fixed;
+    width: 510px;
+    margin-left: 650px;
 }
 
 #binary-target > * {
     white-space: pre;
     font-size: 13px;
+    line-height: normal;
 }
 
-#hex-target, #bin-target {
+#hex-target, #bin-target, #address {
     font-family: monospace;
 }
 
-#hex-target span span {
-    margin: 0 2px;
+#hex-target span,
+#bin-target span {
+    cursor: pointer;
 }
 
 #binary-target .selected {
